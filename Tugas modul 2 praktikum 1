@@ -1,0 +1,10 @@
+// Nama: Kresna Atha Cahyagama Ahmad
+// NIM: 09030626100
+// Praktikum 1
+public class TugasPraktikum {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Mahasiswa ke " + i);
+        }
+    }
+}
