@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author Statistics
+ */
+public class Perkalian {
+
+    public static void main(String[] args) {
+        Scanner angka = new Scanner(System.in);
+        System.out.println("Masukkan Angka : ");
+        int bilangan = angka.nextInt();
+        for (int i = 1; i <= 10; i++) {
+            int hasil = bilangan * i;
+            System.out.println(" Hasilnya : " + bilangan + " x " + i + " = " + hasil);
+        }
+    }
+}
