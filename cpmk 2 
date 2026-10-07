@@ -1,0 +1,112 @@
+TUGAS 1
+
+import java.util.Scanner;
+
+public class Tugas1 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int harta;
+        int nisab;
+        int percobaan = 0;
+
+        do {
+            System.out.print("Total harta: Rp");
+            harta = scanner.nextInt();
+
+            System.out.print("nilai nisab: Rp");
+            nisab = scanner.nextInt();
+
+            percobaan++;
+
+            if (harta < nisab) {
+                System.out.println("harta belum mencapai nisab");
+                System.out.println("kalau masih ada lagi tulis dibawah ya");
+            } else if (harta >= nisab) {
+                System.out.println("wajib bayar zakat sebanyak Rp" + harta * (0.025));
+                System.out.println("kalau masih ada lagi tulis dibawah ya");
+            }
+        } while (harta > nisab);
+
+        System.out.println("jangan pelit untuk zakat yaa");
+        scanner.close();
+    }
+}
+
+
+TUGAS 2
+
+import java.util.Scanner;
+
+public class Tugas2 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int motor = 2000;
+        int mobil = 5000;
+        int tariftambahanmotor = 1000;
+        int tariftambahanmobil = 2000;
+        int totaljam;
+
+        do {
+            System.out.print("berapa jam: ");
+            totaljam = scanner.nextInt();
+
+            if (totaljam > 0) {
+                System.out.println("Total tarif motor: Rp" + (motor + (tariftambahanmotor * totaljam)));
+                System.out.println("Total tarif mobil: Rp" + (mobil + (tariftambahanmobil * totaljam)));
+                System.out.println("kalau masih ada lagi tulis dibawah ya");
+            }
+        } while (totaljam != 0);
+
+        System.out.println("kalau masih ada lagi tulis dibawah ya");
+        scanner.close();
+    }
+}
+
+TUGAS 3
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Tugas3 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int tebakan;
+        int percobaan = 0;
+        int maxpercobaan = 7;
+
+        int ar = random.nextInt(1, 101);
+
+        System.out.println("Permainan tebak angka 1-100, ayo mulai");
+
+        do {
+            System.out.print("ayo tebak: ");
+            tebakan = scanner.nextInt();
+            percobaan++;
+
+            if (tebakan < ar) {
+                System.out.println("terlalu kecil");
+            } else if (tebakan > ar) {
+                System.out.println("terlalu besar");
+            } else {
+                System.out.println("nah, baru betul");
+                System.out.println("jumlah percobaan: " + percobaan);
+            }
+
+            if (percobaan > maxpercobaan && tebakan != ar) {
+                System.out.println("kesempatan habis, angka rahasianya adalah " + ar + "wkwkwwk");
+                break;
+            }
+        } while (tebakan != ar && percobaan < maxpercobaan);
+
+        if (tebakan == ar) {
+            System.out.println("selamat, kamu menang");
+            scanner.close();
+        }
+    }
+}
