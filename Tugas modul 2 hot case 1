@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class TugasPraktikum {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan jumlah bulan: ");
+        int JumlahBulan = input.nextInt();
+        int tabungan = 100000;
+        int total = 0;
+
+        for (int bulan = 1; bulan <= JumlahBulan; bulan++) {
+            total += tabungan;
+            System.out.println("Bulan " + bulan + " Rp " + tabungan);
+            if (total >= 1000000) {
+                System.out.println("Mencapai total Rp 1000000 pada bulan ke-" + bulan);
+                break;
+            }
+            tabungan += 50000;
+        }
+        System.out.println("Total tabungan Rp " + total);
+        input.close();
+    }
+}
