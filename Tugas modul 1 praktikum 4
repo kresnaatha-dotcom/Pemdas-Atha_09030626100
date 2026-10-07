@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+//IdentitasDiri:
+//NIM: 09030626100
+//NAMA: Kresna Atha Cahyagama Ahmad
+//Modul Praktikum Bab 4
+
+public class BeasiswaTahfid {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("IPK: ");
+        double ipk = input.nextDouble();
+
+        System.out.println("Hafalan: ");
+        int hafalan = input.nextInt();
+
+        if (ipk >= 3.25 && hafalan >= 5) {
+            System.out.println("Memenuhi syarat beasiswa");
+        } else {
+            System.out.println("Belum memenuhi syarat beasiswa");
+        }
+
+        input.close();
+    }
+}
+
+
+PENGEMBANGAN PRAKTIKUM 4
+
+
+import java.util.Scanner;
+
+//IdentitasDiri:
+//NIM: 09030626100
+//NAMA: Kresna Atha Cahyagama Ahmad
+//Modul Praktikum Bab 4
+
+public class BeasiswaTahfid {
+
+    public static void main(String[] args) {
+        Scanner beasiswa = new Scanner(System.in);
+
+        System.out.println("Masukkan nilai ipk: ");
+        double ipk = beasiswa.nextDouble();
+
+        System.out.println("Masukkan penghasilan orang tua: ");
+        double penghasilan = beasiswa.nextDouble();
+
+        System.out.println("Masukkan tanggungan: ");
+        int tanggungan = beasiswa.nextInt();
+
+        System.out.println("Apakah pernah menerima beasiswa (true/false): ");
+        boolean Beasiswa = beasiswa.nextBoolean();
+
+        System.out.println("Apakah aktif kegiatan sosial (true/false): ");
+        boolean kegiatanSosial = beasiswa.nextBoolean();
+
+        if ((ipk >= 3.50) && (penghasilan < 3000000) && (Beasiswa == false)) {
+            System.out.println("Prioritas utama");
+        } else if ((ipk > 3.00) && (penghasilan < 5000000) && (tanggungan >= 3) && (Beasiswa == false)) {
+            System.out.println("Prioritas kedua");
+        } else if ((ipk >= 3.00) && (Beasiswa == false) && (kegiatanSosial == true)) {
+            System.out.println("Pertimbangan khusus");
+        } else {
+            System.out.println("Belum memenuhi prioritas");
+        }
+
+        beasiswa.close();
+    }
+}
