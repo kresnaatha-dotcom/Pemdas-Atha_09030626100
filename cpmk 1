@@ -1,0 +1,15 @@
+public class Mavenproject1 {
+
+    public static void main(String[] args) {
+        String nama = "Atha";
+
+        String prodi = "Sistem informasi";
+        int semester = 1;
+        System.out.println("====== DATA MAHASISWA ======");
+        System.out.println("nama =" +nama);
+        System.out.println("nim = 09030626100");
+        System.out.println("Program studi =" +prodi);
+        System.out.println("Semester ="+semester);
+        System.out.println("============================");
+    }
+}
