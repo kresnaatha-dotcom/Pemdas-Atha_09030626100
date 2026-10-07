@@ -1,0 +1,25 @@
+public class TugasPraktikum {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            if (i == 6) {
+                break;
+            }
+            System.out.println(i);
+        }
+    }
+}
+
+
+PENGEMBANGAN PRAKTIKUM 7
+
+
+public class TugasPraktikum {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            if (i == 6) {
+                continue;
+            }
+            System.out.println(i);
+        }
+    }
+}
