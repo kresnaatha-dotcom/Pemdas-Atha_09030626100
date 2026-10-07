@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class TugasPraktikum {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int TotalMahasiswa = input.nextInt();
+        int jumlahHadir = 0;
+        int jumlahTidakHadir = 0;
+
+        System.out.print("Masukkan keterangan kehadiran (1 hadir, 0 tidak hadir):\n");
+        for (int i = 1; i <= TotalMahasiswa; i++) {
+            System.out.print("Mahasiswa ke-" + i + ": ");
+            int status = input.nextInt();
+            if (status == 1) {
+                jumlahHadir++;
+            } else if (status == 0) {
+                jumlahTidakHadir++;
+            } else {
+                System.out.print("Tidak valid\n");
+                i--;
+            }
+        }
+
+        double persentase = ((double) jumlahHadir / TotalMahasiswa) * 100;
+        System.out.println("Rekap kehadiran:");
+        System.out.println("Jumlah hadir: " + jumlahHadir);
+        System.out.println("Jumlah tidak hadir: " + jumlahTidakHadir);
+        System.out.println("Persentase kehadiran: " + persentase + "%");
+
+        if (persentase >= 75) {
+            System.out.println("Telah memenuhi syarat kehadiran");
+        } else {
+            System.out.print("Tidak memenuhi syarat kehadiran");
+        }
+        input.close();
+    }
+}
