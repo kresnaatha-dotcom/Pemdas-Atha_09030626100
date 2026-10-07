@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+//Identitas Diri:
+//NIM: 09030626100
+//NAMA: Kresna Atha Cahyagama Ahmad
+//Modul Praktikum Bab 2
+
+public class DonasiRamadhan {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Nama donatur : ");
+        String nama = input.nextLine();
+
+        System.out.println("Jenis donatur: ");
+        String jenis = input.nextLine();
+
+        System.out.println("Jumlah donasi: ");
+        double donasi = input.nextDouble();
+        input.nextLine();
+
+        System.out.println("Kode transaksi: ");
+        String kode = input.nextLine();
+
+        System.out.println("Donasi anonim? (true/false)");
+        boolean anonim = input.nextBoolean();
+
+        System.out.println("\n=== DATA DONASI ===");
+        System.out.println("Nama: " + nama);
+        System.out.println("Jenis: " + jenis);
+        System.out.println("Donasi: Rp" + donasi);
+        System.out.println("Kode: " + kode);
+        System.out.println("Anonim: " + anonim);
+
+        input.close();
+    }
+}
