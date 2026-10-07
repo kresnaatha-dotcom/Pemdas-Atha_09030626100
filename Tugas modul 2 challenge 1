@@ -1,0 +1,93 @@
+import java.util.Scanner;
+
+public class TugasPraktikum {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int pilihan;
+
+        do {
+            System.out.println("\nMENU POLA");
+            System.out.println("1. Segitiga");
+            System.out.println("2. Segitiga Terbalik");
+            System.out.println("3. Persegi");
+            System.out.println("4. Piramida");
+            System.out.println("5. Diamond");
+            System.out.println("6. Keluar");
+            System.out.print("Pilihan: ");
+            pilihan = input.nextInt();
+
+            if (pilihan == 6) {
+                System.out.println("Program keluar. Terima kasih!");
+                break;
+            }
+
+            if (pilihan >= 1 && pilihan <= 5) {
+                System.out.print("Masukkan tinggi: ");
+                int tinggi = input.nextInt();
+                System.out.println();
+
+                switch (pilihan) {
+                    case 1:
+                        for (int i = 1; i <= tinggi; i++) {
+                            for (int j = 1; j <= i; j++) {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 2:
+                        for (int i = tinggi; i >= 1; i--) {
+                            for (int j = 1; j <= i; j++) {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 3:
+                        for (int i = 1; i <= tinggi; i++) {
+                            for (int j = 1; j <= tinggi; j++) {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 4:
+                        for (int i = 1; i <= tinggi; i++) {
+                            for (int j = tinggi; j > i; j--) {
+                                System.out.print(" ");
+                            }
+                            for (int k = 1; k <= (2 * i - 1); k++) {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 5:
+                        for (int i = 1; i <= tinggi; i++) {
+                            for (int j = tinggi; j > i; j--) {
+                                System.out.print(" ");
+                            }
+                            for (int k = 1; k <= (2 * i - 1); k++) {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                        }
+                        for (int i = tinggi - 1; i >= 1; i--) {
+                            for (int j = tinggi; j > i; j--) {
+                                System.out.print(" ");
+                            }
+                            for (int k = 1; k <= (2 * i - 1); k++) {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                        }
+                        break;
+                }
+            } else {
+                System.out.println("Pilihan tidak valid! Silakan masukkan angka 1-6.");
+            }
+        } while (pilihan != 6);
+
+        input.close();
+    }
+}
