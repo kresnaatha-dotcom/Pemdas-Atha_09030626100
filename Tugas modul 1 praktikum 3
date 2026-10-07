@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+//Identitas Diri:
+//NIM: 09030626100
+//NAMA: Kresna Atha Cahyagama Ahmad
+//Modul Praktikum Bab 3
+
+public class DidtibusiZakat {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Total beras (kg):");
+        int totalBeras = input.nextInt();
+
+        System.out.println("Beras per keluarga (kg):");
+        int berasPerKeluarga = input.nextInt();
+
+        int jumlahKeluarga = totalBeras / berasPerKeluarga;
+        int sisaBeras = totalBeras % berasPerKeluarga;
+
+        System.out.println("\n=== HASIL DISTRIBUSI ===");
+        System.out.println("Jumlah keluarga = " + jumlahKeluarga);
+        System.out.println("Sisa beras = " + sisaBeras + " kg");
+
+        input.close();
+    }
+}
+
+
+PENGEMBANGAN PRAKTIKUM 3 
+
+
+import java.util.Scanner;
+
+//Identitas Diri:
+//NIM: 09030626100
+//NAMA: Kresna Atha Cahyagama Ahmad
+//Modul Praktikum Bab 3
+
+public class DidtibusiZakat {
+
+    public static void main(String[] args) {
+        Scanner beras = new Scanner(System.in);
+
+        System.out.println("Total beras (kg):");
+        int totalBeras = beras.nextInt();
+
+        System.out.println("Jumlah keluarga :");
+        int jumlahKeluarga = beras.nextInt();
+
+        int berasPerKeluarga = totalBeras / jumlahKeluarga;
+        int sisaBeras = totalBeras % jumlahKeluarga;
+
+        System.out.println("\n=== HASIL DISTRIBUSI ===");
+        System.out.println("Beras per keluarga = " + berasPerKeluarga + " kg");
+        System.out.println("Sisa beras = " + sisaBeras + " kg");
+
+        int sisaDalamGram = sisaBeras * 1000;
+        int tambahanGram = sisaDalamGram / jumlahKeluarga;
+        System.out.println("Tambahan per keluarga = " + tambahanGram + " gram");
+
+        beras.close();
+    }
+}
