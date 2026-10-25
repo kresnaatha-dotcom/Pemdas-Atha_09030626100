@@ -1,0 +1,125 @@
+package com.mycompany.tugaspengembangan;
+import java.util.Scanner;
+public class TugasPengembangan {
+    static int bacaUkuran(Scanner input, String pesan, int minimum) {
+        int ukuran;
+        do {
+            System.out.print(pesan);
+            while (!input.hasNextInt()) {
+                System.out.println("Masukkan harus berupa bilangan bulat.");
+                input.next();
+                System.out.print(pesan);
+            }
+            ukuran = input.nextInt();
+            input.nextLine(); // membersihkan sisa enter
+            if (ukuran < minimum) {
+                System.out.println("Ukuran minimal " + minimum + ".");
+            }
+        } while (ukuran < minimum);
+        return ukuran;
+    }
+    static String[][][] inputDataMahasiswa(
+            Scanner input, int jumlahProdi, int jumlahKelas, int jumlahMahasiswa) {
+        String[][][] data = new String[jumlahProdi][jumlahKelas][jumlahMahasiswa];
+        for (int i = 0; i < jumlahProdi; i++) {
+            System.out.println("\n=== Program Studi ke-" + (i + 1) + " ===");
+            for (int j = 0; j < jumlahKelas; j++) {
+                System.out.println("-- Kelas ke-" + (j + 1) + " --");
+                for (int k = 0; k < jumlahMahasiswa; k++) {
+                    System.out.print("Nama mahasiswa ke-" + (k + 1) + ": ");
+                    data[i][j][k] = input.nextLine().trim();
+                    while (data[i][j][k].isEmpty()) {
+                        System.out.print("Nama tidak boleh kosong. Masukkan ulang: ");
+                        data[i][j][k] = input.nextLine().trim();
+                    }
+                }
+            }
+        }
+        return data;
+    }
+    static void tampilkanData(String[][][] data) {
+        System.out.println("\n===== DATA SELURUH MAHASISWA =====");
+        for (int i = 0; i < data.length; i++) {
+            System.out.println("\nProgram Studi ke-" + (i + 1));
+            for (int j = 0; j < data[i].length; j++) {
+                System.out.println("  Kelas ke-" + (j + 1));
+                for (int k = 0; k < data[i][j].length; k++) {
+                    System.out.println("    " + (k + 1) + ". " + data[i][j][k]);
+                }
+            }
+        }
+    }
+    static boolean cariNama(String[][][] data, String kataKunci) {
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                for (int k = 0; k < data[i][j].length; k++) {
+                    if (data[i][j][k].equalsIgnoreCase(kataKunci.trim())) {
+                        System.out.println("Nama ditemukan: " + data[i][j][k]);
+                        System.out.println("Lokasi: Program Studi " + (i + 1)
+                                + ", Kelas " + (j + 1)
+                                + ", Mahasiswa ke-" + (k + 1));
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    static void menuOperasiString(Scanner input, String[][][] data) {
+        int pilihan;
+        do {
+            System.out.println("\n===== MENU OPERASI STRING =====");
+            System.out.println("1. Cari nama mahasiswa");
+            System.out.println("0. Kembali");
+            pilihan = bacaUkuran(input, "Pilih menu: ", 0);
+            switch (pilihan) {
+                case 1:                    
+                    System.out.print("Masukkan nama yang dicari: ");
+                    String kataKunci = input.nextLine().trim();
+                    if (!cariNama(data, kataKunci)) {
+                        System.out.println("Nama tidak ditemukan.");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Kembali ke menu utama.");
+                    break;
+                default:
+                    System.out.println("Menu tidak tersedia. Pilih 0 sampai 3.");
+            }
+        } while (pilihan != 0);
+    }
+    static void tampilkanMenu() {
+        System.out.println("\n===== PENDATAAN MAHASISWA =====");
+        System.out.println("1. Tampilkan semua data");
+        System.out.println("2. Operasi String");
+        System.out.println("0. Keluar");
+    }
+    public static void main(String[] args) {
+         Scanner input = new Scanner(System.in);
+        System.out.println("=== UKURAN DATA MAHASISWA ===");
+        int jumlahProdi = bacaUkuran(input, "Jumlah program studi: ", 1);
+        int jumlahKelas = bacaUkuran(input, "Jumlah kelas per program studi: ", 1);
+        int jumlahMahasiswa = bacaUkuran(input, "Jumlah mahasiswa per kelas: ", 1);
+        String[][][] data = inputDataMahasiswa(
+                input, jumlahProdi, jumlahKelas, jumlahMahasiswa);
+        int pilihan;
+        do {
+            tampilkanMenu();
+            pilihan = bacaUkuran(input, "Pilih menu: ", 0);
+            switch (pilihan) {
+                case 1:
+                    tampilkanData(data);
+                    break;
+                case 2:
+                    menuOperasiString(input, data);
+                    break;
+                case 0:
+                    System.out.println("Program selesai. Terima kasih!");
+                    break;
+                default:
+                    System.out.println("Menu tidak tersedia. Pilih 0 sampai 2.");
+            }
+        } while (pilihan != 0);
+        input.close();
+    }
+}
